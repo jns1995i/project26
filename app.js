@@ -175,32 +175,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(async (req, res, next) => {
-  try {
-    const ratingsSummary = await Ratings.aggregate([
-      {
-        $group: {
-          _id: null,
-          averageRating: { $avg: "$rating" },
-          totalRatings: { $sum: 1 }
-        }
-      }
-    ]);
-
-    const summary = ratingsSummary[0] || { averageRating: 0, totalRatings: 0 };
-
-    req.ratings = summary;           // optional if you want it in req
-    res.locals.ratings = summary;    // makes it available in all EJS templates
-
-    next();
-  } catch (err) {
-    console.error('⚠️ Error loading ratings:', err);
-    req.ratings = { averageRating: 0, totalRatings: 0 };
-    res.locals.ratings = { averageRating: 0, totalRatings: 0 };
-    next();
-  }
-});
-
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

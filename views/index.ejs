@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+    </style>
+</head>
+<body class="block overflowY relative">
+  
+    
+    <section class="wrap gap10 bgSoft corner15">
+      <div class="wpx300 hpx180 corner15 aluminum size40">aluminum</div>
+      <div class="wpx300 hpx180 corner15 silver size40">silver</div>
+      <div class="wpx300 hpx180 corner15 porcelain size40">porcelain</div>
+    </section>
+
+    <section class="wrap gap10">
+      <div class="wpx300 hpx180 corner15 abstract size40">abstract</div>
+      <div class="wpx300 hpx180 corner15 gradient size40">gradient</div>
+      <div class="wpx300 hpx180 corner15 sea size40">sea</div>
+      <div class="wpx300 hpx180 corner15 blind size40">blind</div>
+      <div class="wpx300 hpx180 corner15 geo size40">geo</div>
+      <div class="wpx300 hpx180 corner15 geoLight size40">geoLight</div>
+      <div class="wpx300 hpx180 corner15 polaroid size40">polaroid</div>
+      <div class="wpx300 hpx180 corner15 animate size40">animate</div>
+    </section>
+    <section class="wrap abstract corner15">
+      <section class="wrap padding20 gap20">
+        <div class="wpx200 hpx70 corner15 clear size20">clear</div>
+        <div class="wpx200 hpx70 corner15 glass size20">glass</div>
+        <div class="wpx200 hpx70 corner15 crystal size20">crystal</div>
+        <div class="wpx200 hpx70 corner15 liquid size20">liquid</div>
+      </section>
+      <section class="wrap padding20 gap20">
+        <div class="wpx200 hpx70 corner15 glow1 bgWhite size20">glow1</div>
+        <div class="wpx200 hpx70 corner15 glow2 bgWhite size20">glow2</div>
+        <div class="wpx200 hpx70 corner15 glow3 bgWhite size20">glow3</div>
+      </section>
+    </section>
+    <br>
+    <section class="wrap padding0 gap20">
+      <section class="width60 hpx500 imgUrl imgNoRepeat imgCenter imgCover wrap padding20 gap10 corner20" style="--img: url('/images/annphoto2.jpg')">
+        <div class="wpx300 height50 corner15 glass size20">glass</div>
+        <div class="wpx300 height50 corner15 crystal size20">crystal</div>
+      </section>
+    </section>
+
+  <section class=" width0 padding10 corner8 size14 str500 fixed bgWhite shadow3 hidden" id="alert">Code Copied!</section>
+
+    <section class="str400 size40 black textStone800 textCenter textBalance">New Color Palette Class Names</section>
+
+    <div id="colorPalette" class="height0 wrap gap10 padding20"></div>
+    <br>
+    <br>
+    <section class="marginBottom50"></section>
+
+    <script>
+const colors = [
+  'Red','Orange','Amber','Yellow','Lime','Green','Emerald','Teal','Cyan','Sky',
+  'Blue','Indigo','Violet','Purple','Fuchsia','Pink','Rose','Slate','Gray','Zinc','Neutral','Stone','Fatigue','Army','Forest'
+];
+
+const shades = ['50','100','200','300','400','500','600','700','800','900','950'];
+
+const container = document.getElementById('colorPalette');
+const alertBox = document.getElementById('alert');
+
+colors.forEach(color => {
+  shades.forEach(shade => {
+    const className = `bg${color}${shade}`;
+    const labelClass = `text${color}${shade}`;
+
+    const block = document.createElement('div');
+    block.className = 'field width0 alignCenter corner10 hoverShadow2 pointer';
+    block.innerHTML = `
+      <div class="hpx40 wpx120 corner5 padding10 ${className}" onclick="copyText('${className}', event,'${labelClass}')">${className}</div>
+      <label for="" class="size12 str500 black hidden ${labelClass}">${className}</label>
+    `;
+    container.appendChild(block);
+  });
+});
+
+function copyText(text, e, labelClass) {
+  navigator.clipboard.writeText(text).then(() => {
+    // Set the text
+    alertBox.innerText = `${text} copied!`;
+
+    // Remove any previous text color classes
+    alertBox.className = 'width0 padding10 corner8 size10 str500 fixed bgWhite shadow3';
+
+    // Apply the color class from the clicked block
+    alertBox.classList.add(labelClass);
+
+    // Position the alert near the click
+    const offsetX = 10;
+    const offsetY = -30;
+    alertBox.style.left = `${e.pageX + offsetX}px`;
+    alertBox.style.top = `${e.pageY + offsetY}px`;
+
+    // Show the alert
+    alertBox.classList.remove('hidden');
+
+    // Hide after 2 seconds
+    setTimeout(() => {
+      alertBox.classList.add('hidden');
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+
+</script>
+    
+
+</body>
+</html>
