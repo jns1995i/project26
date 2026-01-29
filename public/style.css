@@ -1429,13 +1429,15 @@ progress::-moz-progress-bar { background-color: #4caf50; }
     position: relative;
     overflow: hidden;
     background: 
-    radial-gradient(circle at 50% 30%,
-    rgb(255, 255, 255),
-    rgb(179, 179, 179) 50%),
-    rgba(255, 255, 255, 0.132);
+    radial-gradient(circle at 18% 20%, white, rgba(255,255,255,0) 30%),
+    radial-gradient(circle at 85% 80%, white, rgba(255,255,255,0) 40%),
+    rgba(255,255,255,0.13);
     backdrop-filter: blur(1px) saturate(200%);
     -webkit-backdrop-filter: blur(25px) saturate(200%);
     border: 2px solid rgba(255, 255, 255, 0.642);
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+    background-color: rgb(160, 160, 160);
 }
 
 
