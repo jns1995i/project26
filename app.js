@@ -21,7 +21,7 @@ const Log = require('./model/logs');
 const { isWeakMap } = require('util/types');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 1000;
 process.env.TZ = "Asia/Manila";
 
 // Database Connection to!
