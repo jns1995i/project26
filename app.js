@@ -448,10 +448,9 @@ app.post('/vvp', async (req, res) => {
     }
 });
 
-
-
-
-
+app.get('/tm', async (req, res) => {
+  res.render('template');
+});
 
 app.use((req, res) => {
   res.status(404);
