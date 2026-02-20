@@ -452,6 +452,49 @@ app.get('/tm', async (req, res) => {
   res.render('template');
 });
 
+app.get('/in', async (req, res) => {
+  res.render('in');
+});
+
+app.get('/j', async (req, res) => {
+  res.render('j');
+});
+
+app.get('/l', async (req, res) => {
+  res.render('l');
+});
+
+app.get('/r', async (req, res) => {
+  res.render('r');
+});
+
+app.get('/c', async (req, res) => {
+  res.render('c');
+});
+app.get('/js1', async (req, res) => {
+  res.render('js1');
+});
+app.get('/js2', async (req, res) => {
+  res.render('js2');
+});
+app.get('/js3', async (req, res) => {
+  res.render('js3');
+});
+app.get('/js4', async (req, res) => {
+  res.render('js4');
+});
+app.get('/js5', async (req, res) => {
+  res.render('js5');
+});
+app.get('/js6', async (req, res) => {
+  res.render('js6');
+});
+app.get('/js0', async (req, res) => {
+  res.render('js0');
+});
+
+
+
 app.use((req, res) => {
   res.status(404);
   res.locals.error = 'Oops! Page cannot be found!';
