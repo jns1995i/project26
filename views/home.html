@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Utility Class Reference Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;800&display=swap');
+
+  :root {
+    --bg: #0d0d10;
+    --surface: #16161a;
+    --surface2: #1e1e24;
+    --border: #2a2a35;
+    --accent: #7c6aff;
+    --accent2: #ff6a6a;
+    --green: #4dffb4;
+    --yellow: #ffd166;
+    --text: #e8e8f0;
+    --muted: #6b6b85;
+    --code-bg: #0a0a0d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #0d0d10 0%, #1a1030 50%, #0d0d10 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(124,106,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 30%, #7c6aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header p {
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 12px 14px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  /* SECTION */
+  section {
+    margin-bottom: 70px;
+  }
+  section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  section h2 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 400;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  section h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 28px 0 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* TABLE */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .ref-table thead tr {
+    background: var(--surface2);
+  }
+  .ref-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--border);
+  }
+  .ref-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+  }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: rgba(124,106,255,0.05); }
+
+  /* CLASS NAME PILL */
+  .cls {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: rgba(124,106,255,0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .cls-green { color: var(--green); background: rgba(77,255,180,0.08); }
+  .cls-yellow { color: var(--yellow); background: rgba(255,209,102,0.08); }
+  .cls-red { color: var(--accent2); background: rgba(255,106,106,0.08); }
+
+  /* EQUIVALENT */
+  .eq {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* RANGE INDICATOR */
+  .range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--yellow);
+    opacity: 0.8;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(124,106,255,0.08);
+    border: 1px solid rgba(124,106,255,0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--accent); }
+  .callout code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--green);
+    background: var(--code-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* COLOR SWATCH */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .swatch {
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* FILTER SEARCH */
+  .search-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .search-bar input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-bar input:focus { border-color: var(--accent); }
+  .search-bar input::placeholder { color: var(--muted); }
+
+  /* DEMO BOX */
+  .demo {
+    display: inline-block;
+    background: rgba(124,106,255,0.15);
+    border: 1px solid rgba(124,106,255,0.3);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* GRID 2 col for some sections */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 0.68rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .badge-px { background: rgba(77,255,180,0.15); color: var(--green); }
+  .badge-pct { background: rgba(255,209,102,0.15); color: var(--yellow); }
+  .badge-named { background: rgba(255,106,106,0.15); color: var(--accent2); }
+
+  /* SECTION ANCHOR offset */
+  [id] { scroll-margin-top: 60px; }
+
+  /* Footer */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CSS Utility Class<br>Reference Guide</h1>
+  <p>// Complete documentation — style.css utility system</p>
+</header>
+
+<nav>
+  <a href="#sizing">Sizing</a>
+  <a href="#spacing">Spacing</a>
+  <a href="#layout">Layout & Display</a>
+  <a href="#position">Position</a>
+  <a href="#typography">Typography</a>
+  <a href="#colors">Colors</a>
+  <a href="#borders">Borders & Corners</a>
+  <a href="#backgrounds">Backgrounds</a>
+  <a href="#effects">Effects & Filters</a>
+  <a href="#transforms">Transforms</a>
+  <a href="#hover">Hover Effects</a>
+  <a href="#misc">Misc & Special</a>
+</nav>
+
+<div class="container">
+
+  <!-- =================== SIZING =================== -->
+  <section id="sizing">
+    <h2>Sizing <span class="tag">WIDTH · HEIGHT · AREA</span></h2>
+
+    <div class="callout">
+      The sizing system provides three naming conventions: <strong>pixel-based</strong> (exact px values), <strong>percentage-based</strong> (relative to parent), and the shorthand <strong>area</strong> (equal width &amp; height). Mix and match to suit your layout needs.
+    </div>
+
+    <h3>Width — Pixel-based</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">wpx{n}</span></td><td>Exact pixel width</td><td><span class="cls">wpx200</span></td><td class="eq">width: 200px;</td></tr>
+        <tr><td><span class="cls">wpx0</span></td><td>Fit content</td><td><span class="cls">wpx0</span></td><td class="eq">width: fit-content;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: wpx1 → wpx500 (every 1px step)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Width — Percentage-based</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls cls-yellow">width{n}</span></td><td>Percentage width</td><td><span class="cls cls-yellow">width50</span></td><td class="eq">width: 50%;</td></tr>
+        <tr><td><span class="cls cls-yellow">width0</span></td><td>Fit content</td><td><span class="cls cls-yellow">width0</span></td><td class="eq">width: fit-content;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: width1 → width100 (every 1% step)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Width — Min &amp; Max</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">wpxMax{n}</span></td><td>Max-width in px (steps of 5–50)</td><td><span class="cls">wpxMax300</span></td><td class="eq">max-width: 300px;</td></tr>
+        <tr><td><span class="cls">wpxMin{n}</span></td><td>Min-width in px (steps of 5–50)</td><td><span class="cls">wpxMin100</span></td><td class="eq">min-width: 100px;</td></tr>
+        <tr><td><span class="cls cls-yellow">widthMin{n}</span></td><td>Min-width percentage</td><td><span class="cls cls-yellow">widthMin50</span></td><td class="eq">min-width: 50%;</td></tr>
+        <tr><td><span class="cls cls-yellow">widthMax{n}</span></td><td>Max-width percentage</td><td><span class="cls cls-yellow">widthMax80</span></td><td class="eq">max-width: 80%;</td></tr>
+        <tr><td colspan="4"><span class="range">wpxMax/wpxMin: 0, 5, 10 … 50, 100, 150, 200 … 500 · widthMin/widthMax: 0–100%</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Height — Pixel-based</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">hpx{n}</span></td><td>Exact pixel height</td><td><span class="cls">hpx100</span></td><td class="eq">height: 100px;</td></tr>
+        <tr><td><span class="cls">hpxMax{n}</span></td><td>Max-height in px</td><td><span class="cls">hpxMax500</span></td><td class="eq">max-height: 500px;</td></tr>
+        <tr><td><span class="cls">hpxMin{n}</span></td><td>Min-height in px</td><td><span class="cls">hpxMin50</span></td><td class="eq">min-height: 50px;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: hpx1 → hpx500 (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Height — Percentage-based</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls cls-yellow">height{n}</span></td><td>Percentage height</td><td><span class="cls cls-yellow">height100</span></td><td class="eq">height: 100%;</td></tr>
+        <tr><td><span class="cls cls-yellow">height0</span></td><td>Auto height</td><td><span class="cls cls-yellow">height0</span></td><td class="eq">height: auto;</td></tr>
+        <tr><td><span class="cls cls-yellow">heightMin{n}</span></td><td>Min-height percentage</td><td><span class="cls cls-yellow">heightMin50</span></td><td class="eq">min-height: 50%;</td></tr>
+        <tr><td><span class="cls cls-yellow">heightMax{n}</span></td><td>Max-height percentage</td><td><span class="cls cls-yellow">heightMax80</span></td><td class="eq">max-height: 80%;</td></tr>
+        <tr><td colspan="4"><span class="range">height: 0–100% · heightMin/heightMax: 0–100%</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Area — Equal Width &amp; Height</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">area{n}</span></td><td>Sets width and height to same px value</td><td><span class="cls">area48</span></td><td class="eq">height: 48px; width: 48px;</td></tr>
+        <tr><td><span class="cls">area0</span></td><td>Auto dimensions</td><td><span class="cls">area0</span></td><td class="eq">height: auto; width: auto;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: area1 → area500 (every 1px) — ideal for icons, avatars, squares</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Aspect Ratios</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">aspectSquare</span></td><td>1:1 square</td><td class="eq">aspect-ratio: 1 / 1;</td></tr>
+        <tr><td><span class="cls">aspectVideo</span></td><td>16:9 widescreen</td><td class="eq">aspect-ratio: 16 / 9;</td></tr>
+        <tr><td><span class="cls">aspectPortrait</span></td><td>3:4 portrait</td><td class="eq">aspect-ratio: 3 / 4;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== SPACING =================== -->
+  <section id="spacing">
+    <h2>Spacing <span class="tag">PADDING · MARGIN · GAP</span></h2>
+
+    <h3>Padding — All Sides</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">padding{n}</span></td><td>Padding on all sides</td><td><span class="cls">padding20</span></td><td class="eq">padding: 20px;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: padding0 → padding500 (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Padding — Individual Sides</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">paddingBlock{n}</span></td><td>Top &amp; bottom padding</td><td><span class="cls">paddingBlock10</span></td><td class="eq">padding-block: 10px;</td></tr>
+        <tr><td><span class="cls">paddingInline{n}</span></td><td>Left &amp; right padding</td><td><span class="cls">paddingInline20</span></td><td class="eq">padding-inline: 20px;</td></tr>
+        <tr><td><span class="cls">paddingLeft{n}</span></td><td>Left padding</td><td><span class="cls">paddingLeft16</span></td><td class="eq">padding-left: 16px;</td></tr>
+        <tr><td><span class="cls">paddingRight{n}</span></td><td>Right padding</td><td><span class="cls">paddingRight16</span></td><td class="eq">padding-right: 16px;</td></tr>
+        <tr><td><span class="cls">paddingTop{n}</span></td><td>Top padding</td><td><span class="cls">paddingTop24</span></td><td class="eq">padding-top: 24px;</td></tr>
+        <tr><td><span class="cls">paddingBottom{n}</span></td><td>Bottom padding</td><td><span class="cls">paddingBottom24</span></td><td class="eq">padding-bottom: 24px;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: 0 → 500px (each 1px step)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Margin — All Sides</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">margin{n}</span></td><td>Margin on all sides</td><td><span class="cls">margin16</span></td><td class="eq">margin: 16px;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: margin0 → margin500 (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Margin — Individual Sides</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">marginLeft{n}</span></td><td>Left margin (positive)</td><td><span class="cls">marginLeft20</span></td><td class="eq">margin-left: 20px;</td></tr>
+        <tr><td><span class="cls">marginRight{n}</span></td><td>Right margin (positive)</td><td><span class="cls">marginRight20</span></td><td class="eq">margin-right: 20px;</td></tr>
+        <tr><td><span class="cls">marginTop{n}</span></td><td>Top margin</td><td><span class="cls">marginTop32</span></td><td class="eq">margin-top: 32px;</td></tr>
+        <tr><td><span class="cls">marginBottom{n}</span></td><td>Bottom margin</td><td><span class="cls">marginBottom32</span></td><td class="eq">margin-bottom: 32px;</td></tr>
+        <tr><td colspan="4"><span class="range">All support positive and negative values · negative classes follow same pattern</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Gap (Flexbox &amp; Grid)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">gap{n}</span></td><td>Gap between flex/grid children</td><td><span class="cls">gap16</span></td><td class="eq">gap: 16px;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: gap0 → gap200 (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== LAYOUT =================== -->
+  <section id="layout">
+    <h2>Layout &amp; Display <span class="tag">FLEX · GRID · DISPLAY · OVERFLOW</span></h2>
+
+    <h3>Display</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">flex</span></td><td class="eq">display: flex;</td></tr>
+        <tr><td><span class="cls">block</span></td><td class="eq">display: block;</td></tr>
+        <tr><td><span class="cls">inline</span></td><td class="eq">display: inline;</td></tr>
+        <tr><td><span class="cls">hidden</span></td><td class="eq">display: none;</td></tr>
+        <tr><td><span class="cls">visible</span></td><td class="eq">visibility: visible;</td></tr>
+        <tr><td><span class="cls">invisible</span></td><td class="eq">visibility: hidden;</td></tr>
+        <tr><td><span class="cls">faded</span></td><td class="eq">opacity: 0.6;</td></tr>
+        <tr><td><span class="cls">disabled</span></td><td class="eq">pointer-events: none;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Flex Direction &amp; Wrapping</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">row</span></td><td>Flex row (default)</td><td class="eq">flex-direction: row;</td></tr>
+        <tr><td><span class="cls">rowReverse</span></td><td>Flex row reversed</td><td class="eq">flex-direction: row-reverse;</td></tr>
+        <tr><td><span class="cls">col</span></td><td>Flex column</td><td class="eq">flex-direction: column;</td></tr>
+        <tr><td><span class="cls">colReverse</span></td><td>Flex column reversed</td><td class="eq">flex-direction: column-reverse;</td></tr>
+        <tr><td><span class="cls">wrap</span></td><td>Allow wrapping</td><td class="eq">flex-wrap: wrap;</td></tr>
+        <tr><td><span class="cls">noWrap</span></td><td>Prevent wrapping</td><td class="eq">flex-wrap: nowrap;</td></tr>
+        <tr><td><span class="cls">flex1</span></td><td>Flex grow/shrink/basis shorthand</td><td class="eq">flex: 1;</td></tr>
+        <tr><td><span class="cls">divCenter</span></td><td>Center content vertically</td><td class="eq">align-content: center;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Justify Content</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">justifyCenter</span></td><td class="eq">justify-content: center;</td></tr>
+        <tr><td><span class="cls">justifyStart</span></td><td class="eq">justify-content: start;</td></tr>
+        <tr><td><span class="cls">justifyEnd</span></td><td class="eq">justify-content: end;</td></tr>
+        <tr><td><span class="cls">justifyBetween</span></td><td class="eq">justify-content: space-between;</td></tr>
+        <tr><td><span class="cls">justifyAround</span></td><td class="eq">justify-content: space-around;</td></tr>
+        <tr><td><span class="cls">justifyEvenly</span></td><td class="eq">justify-content: space-evenly;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Align Items</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">alignStart</span></td><td class="eq">align-items: start;</td></tr>
+        <tr><td><span class="cls">alignCenter</span></td><td class="eq">align-items: center;</td></tr>
+        <tr><td><span class="cls">alignEnd</span></td><td class="eq">align-items: end;</td></tr>
+        <tr><td><span class="cls">alignStretch</span></td><td class="eq">align-items: stretch;</td></tr>
+        <tr><td><span class="cls">alignBaseline</span></td><td class="eq">align-items: baseline;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Vertical Alignment</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">alignVerticalTop</span></td><td class="eq">vertical-align: top;</td></tr>
+        <tr><td><span class="cls">alignVerticalMiddle</span></td><td class="eq">vertical-align: middle;</td></tr>
+        <tr><td><span class="cls">alignVerticalBottom</span></td><td class="eq">vertical-align: bottom;</td></tr>
+        <tr><td><span class="cls">alignVerticalBaseline</span></td><td class="eq">vertical-align: baseline;</td></tr>
+        <tr><td><span class="cls">alignVerticalSub</span></td><td class="eq">vertical-align: sub;</td></tr>
+        <tr><td><span class="cls">alignVerticalSuper</span></td><td class="eq">vertical-align: super;</td></tr>
+        <tr><td><span class="cls">alignVerticalTextTop</span></td><td class="eq">vertical-align: text-top;</td></tr>
+        <tr><td><span class="cls">alignVerticalTextBottom</span></td><td class="eq">vertical-align: text-bottom;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Writing Mode</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">horizontalTB</span></td><td class="eq">writing-mode: horizontal-tb;</td></tr>
+        <tr><td><span class="cls">verticalRL</span></td><td class="eq">writing-mode: vertical-rl;</td></tr>
+        <tr><td><span class="cls">verticalLR</span></td><td class="eq">writing-mode: vertical-lr;</td></tr>
+        <tr><td><span class="cls">sidewaysRL</span></td><td class="eq">writing-mode: sideways-rl;</td></tr>
+        <tr><td><span class="cls">sidewaysLR</span></td><td class="eq">writing-mode: sideways-lr;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Float</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">floatLeft</span></td><td class="eq">float: left;</td></tr>
+        <tr><td><span class="cls">floatRight</span></td><td class="eq">float: right;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Overflow</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">overflow0</span></td><td class="eq">overflow: hidden;</td></tr>
+        <tr><td><span class="cls">overflow</span></td><td class="eq">overflow: auto;</td></tr>
+        <tr><td><span class="cls">overflowScroll</span></td><td class="eq">overflow: scroll;</td></tr>
+        <tr><td><span class="cls">overflowVisible</span></td><td class="eq">overflow: visible;</td></tr>
+        <tr><td><span class="cls">overflowY0</span></td><td class="eq">overflow-y: hidden;</td></tr>
+        <tr><td><span class="cls">overflowY</span></td><td class="eq">overflow-y: auto;</td></tr>
+        <tr><td><span class="cls">overflowYScroll</span></td><td class="eq">overflow-y: scroll;</td></tr>
+        <tr><td><span class="cls">overflowYVisible</span></td><td class="eq">overflow-y: visible;</td></tr>
+        <tr><td><span class="cls">overflowX0</span></td><td class="eq">overflow-x: hidden;</td></tr>
+        <tr><td><span class="cls">overflowX</span></td><td class="eq">overflow-x: auto;</td></tr>
+        <tr><td><span class="cls">overflowXScroll</span></td><td class="eq">overflow-x: scroll;</td></tr>
+        <tr><td><span class="cls">overflowXVisible</span></td><td class="eq">overflow-x: visible;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== POSITION =================== -->
+  <section id="position">
+    <h2>Position &amp; Coordinates <span class="tag">POSITION · TOP · BOTTOM · LEFT · RIGHT</span></h2>
+
+    <h3>Position Types</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">relative</span></td><td class="eq">position: relative !important;</td></tr>
+        <tr><td><span class="cls">absolute</span></td><td class="eq">position: absolute !important;</td></tr>
+        <tr><td><span class="cls">fixed</span></td><td class="eq">position: fixed;</td></tr>
+        <tr><td><span class="cls">sticky</span></td><td class="eq">position: sticky;</td></tr>
+        <tr><td><span class="cls">static</span></td><td class="eq">position: static;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      Position offset classes come in two flavors: <strong>percentage-based</strong> shorthand (e.g., <code>t50</code> = top: 50%) and <strong>pixel-based</strong> longhand (e.g., <code>top50</code> = top: 50px). Use the shorthand for responsive layouts, px for precise placement.
+    </div>
+
+    <h3>Coordinate Classes — Percentage (%)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls cls-yellow">t{n}</span></td><td>Top offset (%)</td><td class="eq">top: n%;</td></tr>
+        <tr><td><span class="cls cls-yellow">b{n}</span></td><td>Bottom offset (%)</td><td class="eq">bottom: n%;</td></tr>
+        <tr><td><span class="cls cls-yellow">l{n}</span></td><td>Left offset (%)</td><td class="eq">left: n%;</td></tr>
+        <tr><td><span class="cls cls-yellow">r{n}</span></td><td>Right offset (%)</td><td class="eq">right: n%;</td></tr>
+        <tr><td colspan="3"><span class="range">Range: 1–100 for each direction</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Coordinate Classes — Pixel (px)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">top{n}</span></td><td>Top offset (px)</td><td class="eq">top: npx;</td></tr>
+        <tr><td><span class="cls">bottom{n}</span></td><td>Bottom offset (px)</td><td class="eq">bottom: npx;</td></tr>
+        <tr><td><span class="cls">left{n}</span></td><td>Left offset (px)</td><td class="eq">left: npx;</td></tr>
+        <tr><td><span class="cls">right{n}</span></td><td>Right offset (px)</td><td class="eq">right: npx;</td></tr>
+        <tr><td colspan="3"><span class="range">Range: 0 → 500px (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== TYPOGRAPHY =================== -->
+  <section id="typography">
+    <h2>Typography <span class="tag">SIZE · WEIGHT · ALIGNMENT · TRANSFORM</span></h2>
+
+    <h3>Font Size</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">size{n}</span></td><td>Font size in pixels</td><td><span class="cls">size16</span></td><td class="eq">font-size: 16px;</td></tr>
+        <tr><td><span class="cls">sizeInherit</span></td><td>Inherit parent font size</td><td><span class="cls">sizeInherit</span></td><td class="eq">font-size: inherit;</td></tr>
+        <tr><td colspan="4"><span class="range">Range: size1 → size100 (every 1px)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Font Weight</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">extraLight</span> / <span class="cls">str1</span></td><td>Thinnest</td><td class="eq">font-weight: 100;</td></tr>
+        <tr><td><span class="cls">light</span> / <span class="cls">str2</span></td><td>Light</td><td class="eq">font-weight: 200;</td></tr>
+        <tr><td><span class="cls">semiLight</span> / <span class="cls">str3</span></td><td>Semi-light</td><td class="eq">font-weight: 300;</td></tr>
+        <tr><td><span class="cls">normal</span> / <span class="cls">str4</span></td><td>Normal / Regular</td><td class="eq">font-weight: 400;</td></tr>
+        <tr><td><span class="cls">medium</span> / <span class="cls">str5</span></td><td>Medium</td><td class="eq">font-weight: 500;</td></tr>
+        <tr><td><span class="cls">semiBold</span> / <span class="cls">str6</span></td><td>Semi-bold</td><td class="eq">font-weight: 600;</td></tr>
+        <tr><td><span class="cls">bold</span> / <span class="cls">str7</span></td><td>Bold</td><td class="eq">font-weight: 700;</td></tr>
+        <tr><td><span class="cls">extraBold</span> / <span class="cls">str8</span></td><td>Extra-bold</td><td class="eq">font-weight: 800;</td></tr>
+        <tr><td><span class="cls">strong</span> / <span class="cls">str9</span></td><td>Black / Heaviest</td><td class="eq">font-weight: 900;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Text Alignment</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">textLeft</span></td><td class="eq">text-align: left;</td></tr>
+        <tr><td><span class="cls">textCenter</span></td><td class="eq">text-align: center;</td></tr>
+        <tr><td><span class="cls">textRight</span></td><td class="eq">text-align: right;</td></tr>
+        <tr><td><span class="cls">textJustify</span></td><td class="eq">text-align: justify;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Text Transform &amp; Decoration</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">cap</span></td><td class="eq">text-transform: capitalize;</td></tr>
+        <tr><td><span class="cls">upperCase</span></td><td class="eq">text-transform: uppercase;</td></tr>
+        <tr><td><span class="cls">lowerCase</span></td><td class="eq">text-transform: lowercase;</td></tr>
+        <tr><td><span class="cls">underline</span></td><td class="eq">text-decoration: underline solid;</td></tr>
+        <tr><td><span class="cls">lineThrough</span></td><td class="eq">text-decoration: line-through solid;</td></tr>
+        <tr><td><span class="cls">overline</span></td><td class="eq">text-decoration: overline solid;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Text Overflow &amp; Wrapping</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">textClip</span></td><td>Clip overflowing text</td><td class="eq">white-space: nowrap; overflow: hidden; text-overflow: clip;</td></tr>
+        <tr><td><span class="cls">textEllipsis</span></td><td>Show "…" when text overflows</td><td class="eq">white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;</td></tr>
+        <tr><td><span class="cls">textBalance</span></td><td>Balanced line wrapping</td><td class="eq">text-wrap: balance;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Vertical Align (inline text)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">textBaseline</span></td><td class="eq">vertical-align: baseline;</td></tr>
+        <tr><td><span class="cls">textTop</span></td><td class="eq">vertical-align: text-top;</td></tr>
+        <tr><td><span class="cls">textBottom</span></td><td class="eq">vertical-align: text-bottom;</td></tr>
+        <tr><td><span class="cls">textSub</span></td><td class="eq">vertical-align: sub;</td></tr>
+        <tr><td><span class="cls">textSuper</span></td><td class="eq">vertical-align: super;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== COLORS =================== -->
+  <section id="colors">
+    <h2>Colors <span class="tag">TEXT · BACKGROUND · NAMED</span></h2>
+
+    <div class="callout">
+      The color system has three layers: <strong>named colors</strong> (simple keywords), <strong>semantic scale colors</strong> (e.g., <code>textRed500</code>), and <strong>background color classes</strong> (e.g., <code>bgBlue600</code>). Scale colors use CSS custom properties (variables) and follow a 50–950 shade scale per color family.
+    </div>
+
+    <h3>Named Text Colors (simple)</h3>
+    <div class="swatch-grid">
+      <div class="swatch" style="background:#fff;color:#111">.white</div>
+      <div class="swatch" style="background:#111;color:#fff">.black</div>
+      <div class="swatch" style="background:gray;color:#fff">.gray</div>
+      <div class="swatch" style="background:lightgray;color:#333">.lightGray</div>
+      <div class="swatch" style="background:#808080;color:#fff">.mediumGray</div>
+      <div class="swatch" style="background:rgb(50,50,50);color:#fff">.darkGray</div>
+      <div class="swatch" style="background:red;color:#fff">.red</div>
+      <div class="swatch" style="background:green;color:#fff">.green</div>
+      <div class="swatch" style="background:#040d6b;color:#fff">.blue</div>
+      <div class="swatch" style="background:#ffa806;color:#000">.yellow</div>
+      <div class="swatch" style="background:orangered;color:#fff">.orange</div>
+      <div class="swatch" style="background:purple;color:#fff">.purple</div>
+      <div class="swatch" style="background:pink;color:#333">.pink</div>
+      <div class="swatch" style="background:rgb(66,40,18);color:#fff">.brown</div>
+      <div class="swatch" style="background:cyan;color:#333">.cyan</div>
+      <div class="swatch" style="background:teal;color:#fff">.teal</div>
+      <div class="swatch" style="background:lime;color:#333">.lime</div>
+      <div class="swatch" style="background:indigo;color:#fff">.indigo</div>
+      <div class="swatch" style="background:violet;color:#333">.violet</div>
+      <div class="swatch" style="background:gold;color:#333">.gold</div>
+      <div class="swatch" style="background:maroon;color:#fff">.maroon</div>
+      <div class="swatch" style="background:navy;color:#fff">.navy</div>
+      <div class="swatch" style="background:olive;color:#fff">.olive</div>
+    </div>
+
+    <h3 style="margin-top: 28px;">Extended Named Text Colors</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Color</th><th>Hex / Named</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">offWhite</span></td><td>Off-white</td><td class="eq">#f8f8f8</td></tr>
+        <tr><td><span class="cls">charcoal</span></td><td>Charcoal</td><td class="eq">#36454F</td></tr>
+        <tr><td><span class="cls">slate</span></td><td>Slate gray</td><td class="eq">#708090</td></tr>
+        <tr><td><span class="cls">platinum</span></td><td>Platinum</td><td class="eq">#e5e4e2</td></tr>
+        <tr><td><span class="cls">darkRed</span></td><td>Dark red</td><td class="eq">#8b0000</td></tr>
+        <tr><td><span class="cls">lightRed</span></td><td>Light red</td><td class="eq">#f08080</td></tr>
+        <tr><td><span class="cls">crimson</span></td><td>Crimson</td><td class="eq">crimson</td></tr>
+        <tr><td><span class="cls">darkGreen</span></td><td>Dark green</td><td class="eq">#006400</td></tr>
+        <tr><td><span class="cls">lightGreen</span></td><td>Light green</td><td class="eq">#90ee90</td></tr>
+        <tr><td><span class="cls">seaGreen</span></td><td>Sea green</td><td class="eq">seagreen</td></tr>
+        <tr><td><span class="cls">lightBlue</span></td><td>Light blue</td><td class="eq">lightblue</td></tr>
+        <tr><td><span class="cls">skyBlue</span></td><td>Sky blue</td><td class="eq">skyblue</td></tr>
+        <tr><td><span class="cls">royalBlue</span></td><td>Royal blue</td><td class="eq">royalblue</td></tr>
+        <tr><td><span class="cls">steelBlue</span></td><td>Steel blue</td><td class="eq">steelblue</td></tr>
+        <tr><td><span class="cls">darkOrange</span></td><td>Dark orange</td><td class="eq">darkorange</td></tr>
+        <tr><td><span class="cls">khaki</span></td><td>Khaki</td><td class="eq">khaki</td></tr>
+        <tr><td><span class="cls">lavender</span></td><td>Lavender</td><td class="eq">lavender</td></tr>
+        <tr><td><span class="cls">orchid</span></td><td>Orchid</td><td class="eq">orchid</td></tr>
+        <tr><td><span class="cls">sienna</span></td><td>Sienna</td><td class="eq">sienna</td></tr>
+        <tr><td><span class="cls">chocolate</span></td><td>Chocolate</td><td class="eq">chocolate</td></tr>
+        <tr><td><span class="cls">wheat</span></td><td>Wheat</td><td class="eq">wheat</td></tr>
+        <tr><td><span class="cls">bronze</span></td><td>Bronze</td><td class="eq">#CD7F32</td></tr>
+        <tr><td><span class="cls">copper</span></td><td>Copper</td><td class="eq">#B87333</td></tr>
+        <tr><td><span class="cls">transparent</span></td><td>Transparent</td><td class="eq">transparent</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Scale Text Colors — <code>textColor{shade}</code></h3>
+    <div class="callout">
+      Apply themed text colors using CSS variable-based scale classes. The pattern is <strong>text + ColorName + Shade</strong>, e.g., <code>textBlue500</code>. Available color families and shades:
+    </div>
+    <table class="ref-table">
+      <thead><tr><th>Pattern</th><th>Color Families</th><th>Shade Range</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="cls">text{Color}{shade}</span></td>
+          <td class="eq">Red, Orange, Amber, Yellow, Lime, Green, Emerald, Teal, Cyan, Sky, Blue, Indigo, Violet, Purple, Fuchsia, Pink, Rose, Slate, Gray, Zinc, Neutral, Stone</td>
+          <td class="eq">50 · 100 · 200 · 300 · 400 · 500 · 600 · 700 · 800 · 900 · 950</td>
+          <td><span class="cls">textBlue500</span></td>
+        </tr>
+        <tr><td><span class="cls">textPrimary</span></td><td colspan="3" class="eq">color: var(--primary) !important — uses your theme's primary color</td></tr>
+        <tr><td><span class="cls">colorInherit</span></td><td colspan="3" class="eq">color: inherit;</td></tr>
+        <tr><td><span class="cls">colorPrimary</span></td><td colspan="3" class="eq">color: var(--shade4) !important</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Colors — <code>bg{Color}{shade}</code></h3>
+    <table class="ref-table">
+      <thead><tr><th>Pattern</th><th>Color Families</th><th>Light shades (50–300)</th><th>Dark shades (400–950)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="cls cls-green">bg{Color}{shade}</span></td>
+          <td class="eq">Same 22 families as text</td>
+          <td class="eq">Dark text auto-applied</td>
+          <td class="eq">White text auto-applied</td>
+        </tr>
+        <tr><td colspan="4"><span class="range">Example: bgRed500 → background-color: var(--red500); color: white;</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== BORDERS =================== -->
+  <section id="borders">
+    <h2>Borders &amp; Corners <span class="tag">BORDER · OUTLINE · BORDER-RADIUS</span></h2>
+
+    <h3>Border Width</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">border0</span></td><td>No border</td><td class="eq">border: none;</td></tr>
+        <tr><td><span class="cls">border05</span></td><td>Hairline border</td><td class="eq">border: 0.5px solid lightgray;</td></tr>
+        <tr><td><span class="cls">border{n}</span></td><td>Border width in px (lightgray)</td><td class="eq">border: npx solid lightgray;</td></tr>
+        <tr><td><span class="cls">borderInherit</span></td><td>Inherit border</td><td class="eq">border: inherit;</td></tr>
+        <tr><td colspan="3"><span class="range">Range: border1 → border20</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Border Style</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">borderSolid</span></td><td class="eq">border-style: solid;</td></tr>
+        <tr><td><span class="cls">borderDotted</span></td><td class="eq">border-style: dotted;</td></tr>
+        <tr><td><span class="cls">borderDashed</span></td><td class="eq">border-style: dashed;</td></tr>
+        <tr><td><span class="cls">borderDouble</span></td><td class="eq">border-style: double;</td></tr>
+        <tr><td><span class="cls">borderCollapse</span></td><td class="eq">border-collapse: collapse;</td></tr>
+        <tr><td><span class="cls">borderSeparate</span></td><td class="eq">border-collapse: separate;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Border Colors — <code>border{Color}{shade}</code></h3>
+    <table class="ref-table">
+      <thead><tr><th>Pattern</th><th>Color Families</th><th>Example</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="cls">border{Color}{shade}</span></td>
+          <td class="eq">Same 22 families (Red, Blue, Green, etc.)</td>
+          <td><span class="cls">borderBlue300</span></td>
+          <td class="eq">border-color: var(--blue300);</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Outline</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">outline0</span></td><td class="eq">outline: none;</td></tr>
+        <tr><td><span class="cls">outline05</span></td><td class="eq">outline: 0.5px solid lightgray;</td></tr>
+        <tr><td><span class="cls">outline{n}</span></td><td class="eq">outline: npx solid lightgray;</td></tr>
+        <tr><td><span class="cls">outlineInherit</span></td><td class="eq">outline: inherit;</td></tr>
+        <tr><td colspan="2"><span class="range">Range: outline1 → outline20</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Border Radius (Corners)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">corner0</span></td><td>No rounding</td><td class="eq">border-radius: 0 !important;</td></tr>
+        <tr><td><span class="cls">corner{n}</span></td><td>Pixel border-radius</td><td class="eq">border-radius: npx !important;</td></tr>
+        <tr><td><span class="cls">corner500</span></td><td>Fully circular / pill</td><td class="eq">border-radius: 50% !important;</td></tr>
+        <tr><td><span class="cls">cornerRem{n}</span></td><td>Rem-based border-radius</td><td class="eq">border-radius: n rem;</td></tr>
+        <tr><td colspan="3"><span class="range">corner: 0–50px · corner500 = pill · cornerRem01 → cornerRem3 (in 0.1rem steps)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Box Shadow</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">shadow0</span></td><td class="eq">box-shadow: none;</td></tr>
+        <tr><td><span class="cls">shadow1</span></td><td class="eq">box-shadow: var(--shadow1);</td></tr>
+        <tr><td><span class="cls">shadow2</span></td><td class="eq">box-shadow: var(--shadow2);</td></tr>
+        <tr><td><span class="cls">shadow3</span></td><td class="eq">box-shadow: var(--shadow3);</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== BACKGROUNDS =================== -->
+  <section id="backgrounds">
+    <h2>Backgrounds <span class="tag">IMAGES · POSITION · SIZE · BLEND</span></h2>
+
+    <h3>Background Image Helpers</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgUrl</span></td><td>Apply image from --img CSS var</td><td class="eq">background-image: var(--img);</td></tr>
+        <tr><td><span class="cls">imgStretch</span></td><td>Stretch to fill element</td><td class="eq">background-size: 100% 100%; background-position: center; background-repeat: no-repeat;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Position</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgCenter</span></td><td class="eq">background-position: center;</td></tr>
+        <tr><td><span class="cls">imgLeft</span></td><td class="eq">background-position: left;</td></tr>
+        <tr><td><span class="cls">imgRight</span></td><td class="eq">background-position: right;</td></tr>
+        <tr><td><span class="cls">imgTop</span></td><td class="eq">background-position: top;</td></tr>
+        <tr><td><span class="cls">imgBottom</span></td><td class="eq">background-position: bottom;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Size</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgCover</span></td><td class="eq">background-size: cover;</td></tr>
+        <tr><td><span class="cls">imgContain</span></td><td class="eq">background-size: contain;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Repeat</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgRepeat</span></td><td class="eq">background-repeat: repeat;</td></tr>
+        <tr><td><span class="cls">imgNoRepeat</span></td><td class="eq">background-repeat: no-repeat;</td></tr>
+        <tr><td><span class="cls">imgRepeatX</span></td><td class="eq">background-repeat: repeat-x;</td></tr>
+        <tr><td><span class="cls">imgRepeatY</span></td><td class="eq">background-repeat: repeat-y;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Attachment</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgFixed</span></td><td class="eq">background-attachment: fixed;</td></tr>
+        <tr><td><span class="cls">imgScroll</span></td><td class="eq">background-attachment: scroll;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Clip</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgBorderBox</span></td><td class="eq">background-clip: border-box;</td></tr>
+        <tr><td><span class="cls">imgPaddingBox</span></td><td class="eq">background-clip: padding-box;</td></tr>
+        <tr><td><span class="cls">imgContentBox</span></td><td class="eq">background-clip: content-box;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Background Blend Mode</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">imgBlendNormal</span></td><td class="eq">background-blend-mode: normal;</td></tr>
+        <tr><td><span class="cls">imgBlendMultiply</span></td><td class="eq">background-blend-mode: multiply;</td></tr>
+        <tr><td><span class="cls">imgBlendScreen</span></td><td class="eq">background-blend-mode: screen;</td></tr>
+        <tr><td><span class="cls">imgBlendOverlay</span></td><td class="eq">background-blend-mode: overlay;</td></tr>
+        <tr><td><span class="cls">imgBlendDarken</span></td><td class="eq">background-blend-mode: darken;</td></tr>
+        <tr><td><span class="cls">imgBlendLighten</span></td><td class="eq">background-blend-mode: lighten;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Object Fit (for &lt;img&gt; / &lt;video&gt;)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">objectFitCover</span></td><td class="eq">object-fit: cover;</td></tr>
+        <tr><td><span class="cls">objectFitContain</span></td><td class="eq">object-fit: contain;</td></tr>
+        <tr><td><span class="cls">objectFitFill</span></td><td class="eq">object-fit: fill;</td></tr>
+        <tr><td><span class="cls">objectFitNone</span></td><td class="eq">object-fit: none;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== EFFECTS =================== -->
+  <section id="effects">
+    <h2>Effects &amp; Filters <span class="tag">OPACITY · BLUR · BRIGHTNESS · GRAYSCALE · SEPIA</span></h2>
+
+    <h3>Opacity</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">opacity0</span></td><td>Fully transparent</td><td class="eq">opacity: 0;</td></tr>
+        <tr><td><span class="cls">opacity{n}</span> (1–9)</td><td>Fine-grained 0.01 steps</td><td class="eq">opacity: 0.01 … 0.09;</td></tr>
+        <tr><td><span class="cls">opacity{n}</span> (10–90)</td><td>10% steps</td><td class="eq">opacity: 0.1 … 0.9;</td></tr>
+        <tr><td><span class="cls">opacity100</span></td><td>Fully opaque</td><td class="eq">opacity: 1;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Grayscale</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">grayscale{n}</span></td><td class="eq">filter: grayscale(n%);</td></tr>
+        <tr><td colspan="2"><span class="range">Range: grayscale10 → grayscale100 (steps of 10)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Brightness</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">brightness{n}</span> (10–90)</td><td>Darken element</td><td class="eq">filter: brightness(n%);</td></tr>
+        <tr><td><span class="cls">brightness100</span></td><td>Normal brightness</td><td class="eq">filter: brightness(100%);</td></tr>
+        <tr><td><span class="cls">brightness{n}</span> (110–200)</td><td>Lighten element</td><td class="eq">filter: brightness(n%);</td></tr>
+        <tr><td colspan="3"><span class="range">Steps of 10, from brightness10 → brightness200</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Blur</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">blur{n}</span> (1–10)</td><td>Fine blur</td><td class="eq">filter: blur(npx);</td></tr>
+        <tr><td><span class="cls">blur{n}</span> (20–100)</td><td>Heavy blur (steps of 10)</td><td class="eq">filter: blur(npx);</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Sepia</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">sepia{n}</span></td><td class="eq">filter: sepia(n%);</td></tr>
+        <tr><td colspan="2"><span class="range">Range: sepia10 → sepia100 (steps of 10)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Contrast &amp; Invert</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">contrast50</span></td><td class="eq">filter: contrast(50%);</td></tr>
+        <tr><td><span class="cls">contrast100</span></td><td class="eq">filter: contrast(100%);</td></tr>
+        <tr><td><span class="cls">contrast150</span></td><td class="eq">filter: contrast(150%);</td></tr>
+        <tr><td><span class="cls">invert</span></td><td class="eq">filter: invert(100%);</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Transitions</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">transition</span></td><td class="eq">transition: all 0.6s ease-in-out;</td></tr>
+        <tr><td><span class="cls">transition0</span></td><td class="eq">transition: none;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== TRANSFORMS =================== -->
+  <section id="transforms">
+    <h2>Transforms <span class="tag">ROTATE · SCALE · FLIP · CURSOR</span></h2>
+
+    <h3>Rotation</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Direction</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">rotate15</span></td><td>Clockwise</td><td class="eq">transform: rotate(15deg);</td></tr>
+        <tr><td><span class="cls">rotate30</span></td><td>Clockwise</td><td class="eq">transform: rotate(30deg);</td></tr>
+        <tr><td><span class="cls">rotate45</span></td><td>Clockwise</td><td class="eq">transform: rotate(45deg);</td></tr>
+        <tr><td><span class="cls">rotate60</span></td><td>Clockwise</td><td class="eq">transform: rotate(60deg);</td></tr>
+        <tr><td><span class="cls">rotate90</span></td><td>Clockwise</td><td class="eq">transform: rotate(90deg);</td></tr>
+        <tr><td><span class="cls">rotate120</span></td><td>Clockwise</td><td class="eq">transform: rotate(120deg);</td></tr>
+        <tr><td><span class="cls">rotate135</span></td><td>Clockwise</td><td class="eq">transform: rotate(135deg);</td></tr>
+        <tr><td><span class="cls">rotate180</span></td><td>Clockwise</td><td class="eq">transform: rotate(180deg);</td></tr>
+        <tr><td><span class="cls">rotate270</span></td><td>Clockwise</td><td class="eq">transform: rotate(270deg);</td></tr>
+        <tr><td><span class="cls">rotate15n</span> … <span class="cls">rotate270n</span></td><td>Counter-clockwise</td><td class="eq">transform: rotate(-Ndeg);</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Scale</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">scale01</span> → <span class="cls">scale09</span></td><td>Shrink (0.1–0.9×)</td><td class="eq">transform: scale(0.1) … scale(0.9);</td></tr>
+        <tr><td><span class="cls">scale1</span></td><td>Normal size</td><td class="eq">transform: scale(1);</td></tr>
+        <tr><td><span class="cls">scale2</span> → <span class="cls">scale10</span></td><td>Enlarge (2×–10×)</td><td class="eq">transform: scale(2) … scale(10);</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Flip</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">flipX</span></td><td class="eq">transform: scaleX(-1);</td></tr>
+        <tr><td><span class="cls">flipY</span></td><td class="eq">transform: scaleY(-1);</td></tr>
+        <tr><td><span class="cls">flipBoth</span></td><td class="eq">transform: scale(-1, -1);</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cursor</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">cursorPointer</span></td><td class="eq">cursor: pointer;</td></tr>
+        <tr><td><span class="cls">cursorDefault</span></td><td class="eq">cursor: default;</td></tr>
+        <tr><td><span class="cls">cursorText</span></td><td class="eq">cursor: text;</td></tr>
+        <tr><td><span class="cls">cursorMove</span></td><td class="eq">cursor: move;</td></tr>
+        <tr><td><span class="cls">cursorWait</span></td><td class="eq">cursor: wait;</td></tr>
+        <tr><td><span class="cls">cursorProgress</span></td><td class="eq">cursor: progress;</td></tr>
+        <tr><td><span class="cls">cursorHelp</span></td><td class="eq">cursor: help;</td></tr>
+        <tr><td><span class="cls">cursorCrosshair</span></td><td class="eq">cursor: crosshair;</td></tr>
+        <tr><td><span class="cls">cursorAuto</span></td><td class="eq">cursor: auto;</td></tr>
+        <tr><td><span class="cls">cursorN-resize</span> … <span class="cls">cursorNw-resize</span></td><td class="eq">cursor: [direction]-resize;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== HOVER =================== -->
+  <section id="hover">
+    <h2>Hover Effects <span class="tag">HOVER · ANIMATION</span></h2>
+
+    <div class="callout">
+      All hover classes include a built-in <strong>transition</strong> (0.3–0.6s ease-in-out) — no need to add a separate transition class.
+    </div>
+
+    <h3>Hover Opacity</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>On Hover</th><th>Transition</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">hoverOpacity1</span> → <span class="cls">hoverOpacity9</span></td><td class="eq">opacity: 0.1 → 0.9</td><td class="eq">0.6s ease-in-out</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hover Scale</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>On Hover</th><th>Transition</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">hoverScale09</span></td><td class="eq">transform: scale(0.9) — shrink</td><td class="eq">0.6s ease-in-out</td></tr>
+        <tr><td><span class="cls">hoverScale11</span></td><td class="eq">transform: scale(1.1)</td><td class="eq">0.6s ease-in-out</td></tr>
+        <tr><td><span class="cls">hoverScale12</span></td><td class="eq">transform: scale(1.2)</td><td class="eq">0.6s ease-in-out</td></tr>
+        <tr><td><span class="cls">hoverScale13</span> → <span class="cls">hoverScale17</span></td><td class="eq">transform: scale(1.3–1.7)</td><td class="eq">0.6s ease-in-out</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hover Shadow</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>On Hover</th><th>Transition</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">hoverShadow1</span></td><td class="eq">box-shadow: var(--shadow1)</td><td class="eq">0.3s ease-in-out</td></tr>
+        <tr><td><span class="cls">hoverShadow2</span></td><td class="eq">box-shadow: var(--shadow2)</td><td class="eq">0.3s ease-in-out</td></tr>
+        <tr><td><span class="cls">hoverShadow3</span></td><td class="eq">box-shadow: var(--shadow3)</td><td class="eq">0.3s ease-in-out</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =================== MISC =================== -->
+  <section id="misc">
+    <h2>Misc &amp; Special <span class="tag">VISIBILITY · ANIMATION · UTILITY</span></h2>
+
+    <h3>Visibility Animation Helpers</h3>
+    <div class="callout">
+      <strong>.unseen</strong> and <strong>.seen</strong> are designed to work together — toggle between them with JavaScript to smoothly reveal or hide an element.
+    </div>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="cls">unseen</span></td>
+          <td>Hidden state (for animated reveal)</td>
+          <td class="eq">max-width: 0; opacity: 0; overflow: hidden; transition: max-width 0.6s, opacity 0.7s; z-index: 100;</td>
+        </tr>
+        <tr>
+          <td><span class="cls">seen</span></td>
+          <td>Visible state</td>
+          <td class="eq">max-width: 500px; opacity: 1; transition: max-width 0.6s, opacity 0.2s; z-index: 100;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Utility</h3>
+    <table class="ref-table">
+      <thead><tr><th>Class</th><th>Description</th><th>Equivalent CSS</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cls">faded</span></td><td>Slightly transparent</td><td class="eq">opacity: 0.6;</td></tr>
+        <tr><td><span class="cls">disabled</span></td><td>Disable all pointer events</td><td class="eq">pointer-events: none;</td></tr>
+        <tr><td><span class="cls">divTest</span></td><td>Debug border for dev</td><td class="eq">border: 1px solid var(--primary); border-radius: 10px;</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Quick Reference — Naming Conventions</h3>
+    <div class="callout">
+      <strong>Pixel classes:</strong> prefix + <code>px</code> + number → <code>wpx200</code>, <code>hpx100</code>, <code>top50</code><br>
+      <strong>Percentage classes:</strong> prefix + number → <code>width50</code>, <code>height100</code>, <code>t50</code><br>
+      <strong>Min/Max:</strong> prefix + <code>Min</code>/<code>Max</code> + number → <code>widthMin30</code>, <code>hpxMax400</code><br>
+      <strong>Colors:</strong> category + ColorName + shade → <code>textBlue500</code>, <code>bgRed200</code>, <code>borderGreen300</code><br>
+      <strong>Equal square:</strong> <code>area{n}</code> → sets both width and height to <code>n</code>px<br>
+      <strong>Negative margins:</strong> same as positive with a <code>n</code> suffix or negative prefix convention<br>
+      <strong>Font weight shortcuts:</strong> <code>str1</code>–<code>str9</code> or named (<code>bold</code>, <code>semiBold</code>, etc.)
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  style.css utility class reference — generated from source · all classes documented
+</footer>
+
+</body>
+</html>

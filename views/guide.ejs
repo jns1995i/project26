@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Utility Class Reference</title>
+<script src="https://cdn.jsdelivr.net/gh/jns1995i/style-jit@stylesheet/style-jit.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  * { box-sizing: border-box; }
+  strong {
+    display: inline !important;
+    font-size: inherit;
+  }
+  code {
+    font-size: inherit !important;
+  }
+</style>
+</head>
+<body class="col block overflowY padding0 gradient">
+
+<!-- HEADER -->
+<section class="white padding40 paddingBottom30">
+  <section class="width70 margin0 col" style="margin-left:auto;margin-right:auto">
+    <p class="size50 str400">SOLIGN CSS FRAMEWORK</p>
+    <p class="size12 opacity60 mono upperCase" style="letter-spacing:0.12em">Utility Class Reference| Complete guide to every class in the system</p>
+    <br>
+    <p class="bgAmber50 padding5 corner5">
+        Copy this link inside your head: 
+        <code class="code-highlight">&lt;script src="https://cdn.jsdelivr.net/gh/jns1995i/style-jit@stylesheet/style-jit.js"&gt;&lt;/script&gt;</code>
+    </p>
+  </section>
+</section>
+
+<!-- NAV -->
+<section class="sticky top0" style="z-index:100">
+  <section class="flex gap20 width0 glass corner10 shadow2">
+    <a href="#sizing"     class="size12 mono padding12 paddingInline14 black" >Sizing</a>
+    <a href="#spacing"    class="size12 mono padding12 paddingInline14 black" >Spacing</a>
+    <a href="#layout"     class="size12 mono padding12 paddingInline14 black" >Layout</a>
+    <a href="#position"   class="size12 mono padding12 paddingInline14 black" >Position</a>
+    <a href="#typography" class="size12 mono padding12 paddingInline14 black" >Typography</a>
+    <a href="#colors"     class="size12 mono padding12 paddingInline14 black" >Colors</a>
+    <a href="#borders"    class="size12 mono padding12 paddingInline14 black" >Borders</a>
+    <a href="#backgrounds" class="size12 mono padding12 paddingInline14 black" >Backgrounds</a>
+    <a href="#effects"    class="size12 mono padding12 paddingInline14 black" >Effects</a>
+    <a href="#transforms" class="size12 mono padding12 paddingInline14 black" >Transforms</a>
+    <a href="#hover"      class="size12 mono padding12 paddingInline14 black" >Hover</a>
+    <a href="#misc"       class="size12 mono padding12 paddingInline14 black" >Misc</a>
+    <a href="#button"       class="size12 mono padding12 paddingInline14 black" >Buttons</a>
+    <a href="#components"     class="size12 mono padding12 paddingInline14 black" >components</a>
+    
+  </section>
+</section>
+
+<!-- CONTENT WRAPPER -->
+<section class="col width80 paddingTop40 paddingBottom60" style="margin:0 auto;min-width:300px">
+
+
+  <!-- ===== SIZING ===== -->
+  <section class="col" id="sizing" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Sizing</h2>
+      <span class="bgBlue white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">width · height · area</span>
+    </section>
+    <section class="border1 corner8 padding16 paddingInline20 size14 marginBottom24">Three systems: <strong>pixel-exact</strong> (<code class="mono">wpx</code>, <code class="mono">hpx</code>), <strong>percentage</strong> (<code class="mono">width</code>, <code class="mono">height</code>), and <strong>equal square</strong> (<code class="mono">area</code>). Add <code class="mono">Min</code>/<code class="mono">Max</code> for constraints.</section>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Width — Pixel</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpx{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpx200</code></td><td class="padding10 paddingInline16 mono size13 gray">width: 200px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpx0</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpx0</code></td><td class="padding10 paddingInline16 mono size13 gray">width: fit-content;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: wpx1 → wpx500 (every 1px)</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Width — Percentage</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">width{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">width50</code></td><td class="padding10 paddingInline16 mono size13 gray">width: 50%;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">width0</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">width0</code></td><td class="padding10 paddingInline16 mono size13 gray">width: fit-content;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: width1 → width100 (1% steps)</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Width — Min &amp; Max</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpxMax{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpxMax300</code></td><td class="padding10 paddingInline16 mono size13 gray">max-width: 300px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpxMin{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wpxMin100</code></td><td class="padding10 paddingInline16 mono size13 gray">min-width: 100px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">widthMin{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">widthMin50</code></td><td class="padding10 paddingInline16 mono size13 gray">min-width: 50%;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">widthMax{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">widthMax80</code></td><td class="padding10 paddingInline16 mono size13 gray">max-width: 80%;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Height — Pixel</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpx{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpx100</code></td><td class="padding10 paddingInline16 mono size13 gray">height: 100px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpxMax{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpxMax400</code></td><td class="padding10 paddingInline16 mono size13 gray">max-height: 400px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpxMin{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hpxMin50</code></td><td class="padding10 paddingInline16 mono size13 gray">min-height: 50px;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: hpx1 → hpx500 (every 1px)</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Height — Percentage</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">height{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">height100</code></td><td class="padding10 paddingInline16 mono size13 gray">height: 100%;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">height0</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">height0</code></td><td class="padding10 paddingInline16 mono size13 gray">height: auto;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">heightMin{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">heightMin50</code></td><td class="padding10 paddingInline16 mono size13 gray">min-height: 50%;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">heightMax{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">heightMax80</code></td><td class="padding10 paddingInline16 mono size13 gray">max-height: 80%;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: height0–100% · heightMin/Max 0–100%</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Area — Equal Width &amp; Height</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">area{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">area48</code></td><td class="padding10 paddingInline16 mono size13 gray">height: 48px; width: 48px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">area0</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">area0</code></td><td class="padding10 paddingInline16 mono size13 gray">height: auto; width: auto;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: area1 → area500 — great for icons, avatars, squares</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Aspect Ratio</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">aspectSquare</code></td><td class="padding10 paddingInline16 mono size13 gray">aspect-ratio: 1 / 1;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">aspectVideo</code></td><td class="padding10 paddingInline16 mono size13 gray">aspect-ratio: 16 / 9;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">aspectPortrait</code></td><td class="padding10 paddingInline16 mono size13 gray">aspect-ratio: 3 / 4;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== SPACING ===== -->
+  <section id="spacing" class="col" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="col flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Spacing</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">padding · margin · gap</span>
+    </section>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Padding</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">padding{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">padding20</code></td><td class="padding10 paddingInline16 mono size13 gray">padding: 20px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingBlock{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingBlock10</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-block: 10px; (top + bottom)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingInline{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingInline20</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-inline: 20px; (left + right)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingLeft{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingLeft16</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-left: 16px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingRight{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingRight16</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-right: 16px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingTop{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingTop24</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-top: 24px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingBottom{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">paddingBottom24</code></td><td class="padding10 paddingInline16 mono size13 gray">padding-bottom: 24px;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">All padding classes: 0 → 500px (every 1px)</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Margin</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">margin{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">margin16</code></td><td class="padding10 paddingInline16 mono size13 gray">margin: 16px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginLeft{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginLeft20</code></td><td class="padding10 paddingInline16 mono size13 gray">margin-left: 20px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginRight{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginRight20</code></td><td class="padding10 paddingInline16 mono size13 gray">margin-right: 20px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginTop{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginTop32</code></td><td class="padding10 paddingInline16 mono size13 gray">margin-top: 32px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginBottom{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">marginBottom32</code></td><td class="padding10 paddingInline16 mono size13 gray">margin-bottom: 32px;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Positive + negative values supported · 0 → 500px per side</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Gap (flex / grid)</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">gap{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">gap16</code></td><td class="padding10 paddingInline16 mono size13 gray">gap: 16px;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: gap0 → gap200 (every 1px)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== LAYOUT &AMP; DISPLAY ===== -->
+  <section id="layout" class="col" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Layout &amp; Display</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">flex · display · overflow</span>
+    </section>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Display &amp; Visibility</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">flex</code></td><td class="padding10 paddingInline16 mono size13 gray">display: flex;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">block</code></td><td class="padding10 paddingInline16 mono size13 gray">display: block;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">inline</code></td><td class="padding10 paddingInline16 mono size13 gray">display: inline;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hidden</code></td><td class="padding10 paddingInline16 mono size13 gray">display: none;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">visible</code></td><td class="padding10 paddingInline16 mono size13 gray">visibility: visible;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">invisible</code></td><td class="padding10 paddingInline16 mono size13 gray">visibility: hidden;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">faded</code></td><td class="padding10 paddingInline16 mono size13 gray">opacity: 0.6;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">disabled</code></td><td class="padding10 paddingInline16 mono size13 gray">pointer-events: none;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">floatLeft</code></td><td class="padding10 paddingInline16 mono size13 gray">float: left;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">floatRight</code></td><td class="padding10 paddingInline16 mono size13 gray">float: right;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Flex Direction, Wrap &amp; Grow</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">row</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-direction: row;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">rowReverse</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-direction: row-reverse;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">col</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-direction: column;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">colReverse</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-direction: column-reverse;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">wrap</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-wrap: wrap;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">noWrap</code></td><td class="padding10 paddingInline16 mono size13 gray">flex-wrap: nowrap;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">flex1</code></td><td class="padding10 paddingInline16 mono size13 gray">flex: 1;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sectionCenter</code></td><td class="padding10 paddingInline16 mono size13 gray">align-content: center;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Justify Content</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyCenter</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: center;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyStart</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: start;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyEnd</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: end;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyBetween</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: space-between;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyAround</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: space-around;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">justifyEvenly</code></td><td class="padding10 paddingInline16 mono size13 gray">justify-content: space-evenly;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Align Items</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignStart</code></td><td class="padding10 paddingInline16 mono size13 gray">align-items: start;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignCenter</code></td><td class="padding10 paddingInline16 mono size13 gray">align-items: center;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignEnd</code></td><td class="padding10 paddingInline16 mono size13 gray">align-items: end;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignStretch</code></td><td class="padding10 paddingInline16 mono size13 gray">align-items: stretch;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignBaseline</code></td><td class="padding10 paddingInline16 mono size13 gray">align-items: baseline;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Overflow</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overflow0</code></td><td class="padding10 paddingInline16 mono size13 gray">overflow: hidden;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overflow</code></td><td class="padding10 paddingInline16 mono size13 gray">overflow: auto;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overflowScroll</code></td><td class="padding10 paddingInline16 mono size13 gray">overflow: scroll;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overflowY0 / overflowY / overflowYScroll</code></td><td class="padding10 paddingInline16 mono size13 gray">overflow-y: hidden / auto / scroll;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overflowX0 / overflowX / overflowXScroll</code></td><td class="padding10 paddingInline16 mono size13 gray">overflow-x: hidden / auto / scroll;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== POSITION &AMP; COORDINATES ===== -->
+  <section class="col" id="position" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Position &amp; Coordinates</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">position · top · left · right · bottom</span>
+    </section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">relative</code></td><td class="padding10 paddingInline16 mono size13 gray">position: relative !important;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">absolute</code></td><td class="padding10 paddingInline16 mono size13 gray">position: absolute !important;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">fixed</code></td><td class="padding10 paddingInline16 mono size13 gray">position: fixed;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sticky</code></td><td class="padding10 paddingInline16 mono size13 gray">position: sticky;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">static</code></td><td class="padding10 paddingInline16 mono size13 gray">position: static;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">t{n} / b{n} / l{n} / r{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">top / bottom / left / right: n%; — range 1–100</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">top{n} / bottom{n} / left{n} / right{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">top / bottom / left / right: npx; — range 0–500px</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== TYPOGRAPHY ===== -->
+  <section class="col" id="typography" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Typography</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">size · weight · align · transform</span>
+    </section>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Font Size</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Example</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">size{n}</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">size16</code></td><td class="padding10 paddingInline16 mono size13 gray">font-size: 16px;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sizeInherit</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sizeInherit</code></td><td class="padding10 paddingInline16 mono size13 gray">font-size: inherit;</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Range: size1 → size100 (every 1px)</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Font Weight — Named &amp; Numeric</h3>    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Named Class</th>
+        <th class="mono">Numeric Alias</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">extraLight</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str1</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 100;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">light</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str2</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 200;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">semiLight</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str3</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 300;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">normal</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str4</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 400;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">medium</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str5</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 500;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">semiBold</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str6</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 600;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bold</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str7</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 700;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">extraBold</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str8</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 800;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">strong</code></td><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">str9</code></td><td class="padding10 paddingInline16 mono size13 gray">font-weight: 900;</td></tr>
+      </tbody>
+    </table>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Text Alignment, Transform &amp; Decoration</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">textLeft / textCenter / textRight / textJustify</code></td><td class="padding10 paddingInline16 mono size13 gray">text-align: left / center / right / justify;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">cap</code></td><td class="padding10 paddingInline16 mono size13 gray">text-transform: capitalize;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">upperCase</code></td><td class="padding10 paddingInline16 mono size13 gray">text-transform: uppercase;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">lowerCase</code></td><td class="padding10 paddingInline16 mono size13 gray">text-transform: lowercase;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">underline</code></td><td class="padding10 paddingInline16 mono size13 gray">text-decoration: underline solid;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">lineThrough</code></td><td class="padding10 paddingInline16 mono size13 gray">text-decoration: line-through solid;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">overline</code></td><td class="padding10 paddingInline16 mono size13 gray">text-decoration: overline solid;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">textClip</code></td><td class="padding10 paddingInline16 mono size13 gray">white-space: nowrap; overflow: hidden; text-overflow: clip;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">textEllipsis</code></td><td class="padding10 paddingInline16 mono size13 gray">white-space: nowrap; overflow: hidden; text-overflow: ellipsis;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">textBalance</code></td><td class="padding10 paddingInline16 mono size13 gray">text-wrap: balance;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== COLORS ===== -->
+  <section class="col width100" id="colors" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Colors</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">text · background · scale</span>
+    </section>
+    
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Scale Background Colors Palette — bg{Color}{Shade}</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Pattern</th>
+        <th class="mono">Light shades (50–300)</th>
+        <th class="mono">Dark shades (400–950)</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bg{Color}{Shade}</code></td><td class="padding10 paddingInline16 mono size13 gray">Dark text auto-applied</td><td class="padding10 paddingInline16 mono size13 gray">White text auto-applied</td></tr>
+        <tr class="bgSoft"><td colspan="3" class="padding10 paddingInline16 mono size12 yellow">Same 22 families · Example: bgBlue500 = var(--blue500) + white text</td></tr>
+      </tbody>
+    </table>
+    
+    <section class="col padding0">
+        <section class="str400 size40 textCenter textBalance mono">New Color Palette Class Names</section>
+        <section id="colorPalette" class="height0 wrap gap10 padding20 bgRed"></section>
+    </section>
+
+    <section class="wrap border1 corner8 padding16 paddingInline20 size14 marginBottom24" >Three layers: <strong>named colors</strong> (keywords), <strong>scale text colors</strong> (<code class="mono">text{Color}{Shade}</code>), and <strong>background colors</strong> (<code class="mono">bg{Color}{Shade}</code>). Scale shades run 50–950 across 22 color families.</section>
+
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Named Background Colors (shown as swatches)</h3>
+    <section class="flex row wrap gap8 marginBottom24">
+      <span class="bgBlack white size12 mono padding8 paddingInline12 corner6">.bgBlack</span>
+      <span class="bgWhite border1 black size12 mono padding8 paddingInline12 corner6">.bgWhite</span>
+      <span class="bgGray white size12 mono padding8 paddingInline12 corner6">.bgGray</span>
+      <span class="bgDark white size12 mono padding8 paddingInline12 corner6">.bgDark</span>
+      <span class="bgRed white size12 mono padding8 paddingInline12 corner6">.bgRed</span>
+      <span class="bgGreen white size12 mono padding8 paddingInline12 corner6">.bgGreen</span>
+      <span class="bgBlue white size12 mono padding8 paddingInline12 corner6">.bgBlue</span>
+      <span class="bgYellow black size12 mono padding8 paddingInline12 corner6">.bgYellow</span>
+      <span class="bgOrange white size12 mono padding8 paddingInline12 corner6">.bgOrange</span>
+      <span class="bgPurple white size12 mono padding8 paddingInline12 corner6">.bgPurple</span>
+      <span class="bgPink black size12 mono padding8 paddingInline12 corner6">.bgPink</span>
+      <span class="bgBrown white size12 mono padding8 paddingInline12 corner6">.bgBrown</span>
+      <span class="bgCyan black size12 mono padding8 paddingInline12 corner6">.bgCyan</span>
+      <span class="bgTeal white size12 mono padding8 paddingInline12 corner6">.bgTeal</span>
+      <span class="bgLime black size12 mono padding8 paddingInline12 corner6">.bgLime</span>
+      <span class="bgIndigo white size12 mono padding8 paddingInline12 corner6">.bgIndigo</span>
+      <span class="bgGold black size12 mono padding8 paddingInline12 corner6">.bgGold</span>
+      <span class="bgMaroon white size12 mono padding8 paddingInline12 corner6">.bgMaroon</span>
+      <span class="bgNavy white size12 mono padding8 paddingInline12 corner6">.bgNavy</span>
+      <span class="bgSilver black size12 mono padding8 paddingInline12 corner6">.bgSilver</span>
+    </section>
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Scale Text Colors — text{Color}{Shade}</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Pattern</th>
+        <th class="mono">Families</th>
+        <th class="mono">Shades</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">text{Color}{Shade}</code></td><td class="padding10 paddingInline16 size13 gray">Red, Orange, Amber, Yellow, Lime, Green, Emerald, Teal, Cyan, Sky, Blue, Indigo, Violet, Purple, Fuchsia, Pink, Rose, Slate, Gray, Zinc, Neutral, Stone</td><td class="padding10 paddingInline16 mono size13 gray">50 · 100 · 200 · 300 · 400 · 500 · 600 · 700 · 800 · 900 · 950</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">textPrimary</code></td><td colspan="2" class="padding10 paddingInline16 mono size13 gray">color: var(--primary) !important</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">colorInherit</code></td><td colspan="2" class="padding10 paddingInline16 mono size13 gray">color: inherit;</td></tr>
+      </tbody>
+    </table>
+
+    
+    <h3 class="size11 mono upperCase white marginBottom12" style="letter-spacing:.12em;margin-top:28px">Utility Background Classes</h3>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bgWhite / bgLight / bgSoft</code></td><td class="padding10 paddingInline16 mono size13 gray">white / rgb(243,243,243) / rgb(237,237,237)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bgGray / bgDark / bgBlack</code></td><td class="padding10 paddingInline16 mono size13 gray">Grays from medium → black</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bgPrimary</code></td><td class="padding10 paddingInline16 mono size13 gray">background-color: var(--primary);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bgModal1 → bgModal10</code></td><td class="padding10 paddingInline16 mono size13 gray">rgba(0,0,0, 0.1–1.0) — overlay backdrops</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">translucent</code></td><td class="padding10 paddingInline16 mono size13 gray">rgba(255,255,255, 0.688)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">bgGray1 → bgGray15</code></td><td class="padding10 paddingInline16 mono size13 gray">Fine gray scale via var(--gray1)…var(--gray15)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<script>
+const colors = [
+  'Red','Orange','Amber','Yellow','Lime','Green','Emerald','Teal','Cyan','Sky',
+  'Blue','Indigo','Violet','Purple','Fuchsia','Pink','Rose','Slate','Gray','Zinc','Neutral','Stone','Fatigue','Army','Forest'
+];
+
+const shades = ['50','100','200','300','400','500','600','700','800','900','950'];
+
+const container = document.getElementById('colorPalette');
+container.className = 'flex row wrap gap10 justifyCenter';
+
+colors.forEach(color => {
+  shades.forEach(shade => {
+    const className = `bg${color}${shade}`;
+
+    const isDark = parseInt(shade) >= 500;
+    const textContrast = isDark ? 'white' : 'black';
+
+    const block = document.createElement('div');
+    // Added 'inlineBlock' to ensure they don't force full-width
+    block.className = 'width0 alignCenter corner5 margin5'; 
+    
+    block.innerHTML = `
+      <section class="hpx40 wpx80 corner5 padding10 ${className} ${textContrast} size10 mono">
+        ${className}
+      </section>
+    `;
+    container.appendChild(block);
+  });
+});
+</script>
+
+  <!-- ===== BORDERS &AMP; CORNERS ===== -->
+  <section class="col" id="borders" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Borders &amp; Corners</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">border · outline · radius · shadow</span>
+    </section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">border0</code></td><td class="padding10 paddingInline16 mono size13 gray">border: none;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">border05</code></td><td class="padding10 paddingInline16 mono size13 gray">border: 0.5px solid lightgray;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">border{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">border: npx solid lightgray; — range 1–20</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">borderSolid / borderDotted / borderDashed / borderDouble</code></td><td class="padding10 paddingInline16 mono size13 gray">border-style: solid / dotted / dashed / double;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">borderCollapse / borderSeparate</code></td><td class="padding10 paddingInline16 mono size13 gray">border-collapse: collapse / separate;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">border{Color}{Shade}</code></td><td class="padding10 paddingInline16 mono size13 gray">border-color: var(--colorShade); — all 22 families</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">outline0 / outline05 / outline{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">outline: none / 0.5px / npx solid lightgray; — range 0–20</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">corner{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">border-radius: npx !important; — range 0–50px</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">corner500</code></td><td class="padding10 paddingInline16 mono size13 gray">border-radius: 50% !important; (pill / circle)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">cornerRem{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">border-radius: n rem; — cornerRem01 → cornerRem3 (0.1 steps)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">shadow0 / shadow1 / shadow2 / shadow3</code></td><td class="padding10 paddingInline16 mono size13 gray">box-shadow: none / var(--shadow1/2/3);</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== BACKGROUNDS ===== -->
+  <section class="col" id="backgrounds" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Backgrounds</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">image · position · size · blend</span>
+    </section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgUrl</code></td><td class="padding10 paddingInline16 mono size13 gray">background-image: var(--img);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgStretch</code></td><td class="padding10 paddingInline16 mono size13 gray">background-size: 100% 100%; background-position: center; background-repeat: no-repeat;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgCenter / imgLeft / imgRight / imgTop / imgBottom</code></td><td class="padding10 paddingInline16 mono size13 gray">background-position: center / left / right / top / bottom;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgCover / imgContain</code></td><td class="padding10 paddingInline16 mono size13 gray">background-size: cover / contain;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgRepeat / imgNoRepeat / imgRepeatX / imgRepeatY</code></td><td class="padding10 paddingInline16 mono size13 gray">background-repeat variants</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgFixed / imgScroll</code></td><td class="padding10 paddingInline16 mono size13 gray">background-attachment: fixed / scroll;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgBorderBox / imgPaddingBox / imgContentBox</code></td><td class="padding10 paddingInline16 mono size13 gray">background-clip: border-box / padding-box / content-box;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">imgBlendNormal / imgBlendMultiply / imgBlendScreen / imgBlendOverlay / imgBlendDarken / imgBlendLighten</code></td><td class="padding10 paddingInline16 mono size13 gray">background-blend-mode variants</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">objectFitCover / objectFitContain / objectFitFill / objectFitNone</code></td><td class="padding10 paddingInline16 mono size13 gray">object-fit: cover / contain / fill / none;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== EFFECTS &AMP; FILTERS ===== -->
+  <section class="col" id="effects" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Effects &amp; Filters</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">opacity · blur · brightness · grayscale</span>
+    </section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">opacity0 → opacity100</code></td><td class="padding10 paddingInline16 mono size13 gray">opacity: 0–1 (fine 0.01 steps for 1–9, then 10-step increments)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">grayscale{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: grayscale(n%); — grayscale10 → grayscale100 (steps of 10)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">brightness{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: brightness(n%); — 10–200 in steps of 10 (100 = normal)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">blur{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: blur(npx); — blur1–10 fine; blur20–100 heavy (steps of 10)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sepia{n}</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: sepia(n%); — sepia10 → sepia100 (steps of 10)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">contrast50 / contrast100 / contrast150</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: contrast(50 / 100 / 150%);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">invert</code></td><td class="padding10 paddingInline16 mono size13 gray">filter: invert(100%);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">transition</code></td><td class="padding10 paddingInline16 mono size13 gray">transition: all 0.6s ease-in-out;</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">transition0</code></td><td class="padding10 paddingInline16 mono size13 gray">transition: none;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== TRANSFORMS ===== -->
+  <section class="col" id="transforms" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Transforms</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">rotate · scale · flip · cursor</span>
+    </section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">rotate15 / rotate30 / rotate45 / rotate60 / rotate90 / rotate120 / rotate135 / rotate180 / rotate270</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: rotate(15–270deg); — clockwise</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">rotate15n … rotate270n</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: rotate(−15 → −270deg); — counter-clockwise (n suffix)</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">scale01 → scale09</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: scale(0.1–0.9);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">scale1 → scale10</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: scale(1–10);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">flipX / flipY / flipBoth</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: scaleX(-1) / scaleY(-1) / scale(-1,-1);</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">cursorPointer / cursorDefault / cursorText / cursorMove / cursorWait / cursorHelp / cursorCrosshair</code></td><td class="padding10 paddingInline16 mono size13 gray">cursor: pointer / default / text / move / wait / help / crosshair;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== HOVER EFFECTS ===== -->
+  <section class="col" id="hover" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Hover Effects</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">opacity · scale · shadow</span>
+    </section>
+    <section class=" border1 corner8 padding16 paddingInline20 size14 marginBottom24" >All hover classes include a built-in transition — no need to add <code class="mono">transition</code> separately.</section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">On Hover</th>
+        <th class="mono">Transition</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hoverOpacity1 → hoverOpacity9</code></td><td class="padding10 paddingInline16 mono size13 gray">opacity: 0.1–0.9</td><td class="padding10 paddingInline16 mono size13 gray">0.6s ease-in-out</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hoverScale09</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: scale(0.9)</td><td class="padding10 paddingInline16 mono size13 gray">0.6s ease-in-out</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hoverScale11 → hoverScale17</code></td><td class="padding10 paddingInline16 mono size13 gray">transform: scale(1.1–1.7)</td><td class="padding10 paddingInline16 mono size13 gray">0.6s ease-in-out</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">hoverShadow1 / hoverShadow2 / hoverShadow3</code></td><td class="padding10 paddingInline16 mono size13 gray">box-shadow: var(--shadow1/2/3)</td><td class="padding10 paddingInline16 mono size13 gray">0.3s ease-in-out</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== MISC &AMP; SPECIAL ===== -->
+  <section class="col" id="misc" style="scroll-margin-top:60px;margin-bottom:60px">
+    <section class="flex row alignCenter justifyBetween paddingBottom14" style="border-bottom:1px solid #ddd;margin-bottom:24px">
+      <h2 class="size22 bold " style="letter-spacing:-0.01em">Misc &amp; Special</h2>
+      <span class="bgWhite white size11 mono paddingInline10 padding4 corner4 upperCase" style="letter-spacing:.07em">animation · writing · utility</span>
+    </section>
+    <section class=" border1 corner8 padding16 paddingInline20 size14 marginBottom24" > .unseen and .seen work as a pair — toggle them with JS to smoothly reveal/hide an element.</section>
+    <table style="overflow:hidden">
+      <thead><tr class="bgSoft">
+        <th class="mono">Class</th>
+        <th class="mono">Equivalent CSS</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">unseen</code></td><td class="padding10 paddingInline16 mono size13 gray">max-width: 0; opacity: 0; overflow: hidden; — animated hidden state</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">seen</code></td><td class="padding10 paddingInline16 mono size13 gray">max-width: 500px; opacity: 1; — animated visible state</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">faded</code></td><td class="padding10 paddingInline16 mono size13 gray">opacity: 0.6; — muted / secondary</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">disabled</code></td><td class="padding10 paddingInline16 mono size13 gray">pointer-events: none; — blocks all interaction</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">sectionTest</code></td><td class="padding10 paddingInline16 mono size13 gray">border: 1px solid var(--primary); border-radius: 10px; — dev debug</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">horizontalTB / verticalRL / verticalLR / sidewaysRL / sidewaysLR</code></td><td class="padding10 paddingInline16 mono size13 gray">writing-mode variants</td></tr>
+        <tr><td class="padding10 paddingInline16"><code class="mono size13 bgLightblue blue padding2 paddingInline8 corner4">alignVerticalTop / alignVerticalMiddle / alignVerticalBottom</code></td><td class="padding10 paddingInline16 mono size13 gray">vertical-align: top / middle / bottom;</td></tr>
+      </tbody>
+    </table>
+    <br>
+    <section class="col bgWhite border1 corner8 padding20 marginBottom24">
+      <h3 class="size13 bold  marginBottom16">Naming Convention Cheatsheet</h3>
+      <section class="flex col gap10 size13 alignStart">
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">Pixel classes</span>
+          <span class="gray">prefix + <code class="mono">px</code> + number &rarr; <code class="mono">wpx200</code>, <code class="mono">hpx100</code>, <code class="mono">top50</code></span>
+        </section>
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">% classes</span>
+          <span class="gray">prefix + number &rarr; <code class="mono">width50</code>, <code class="mono">height100</code>, <code class="mono">t50</code></span>
+        </section>
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">Min / Max</span>
+          <span class="gray">prefix + <code class="mono">Min</code>/<code class="mono">Max</code> + number &rarr; <code class="mono">widthMin30</code>, <code class="mono">hpxMax400</code></span>
+        </section>
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">Colors</span>
+          <span class="gray">category + ColorName + shade &rarr; <code class="mono">textBlue500</code>, <code class="mono">bgRed200</code>, <code class="mono">borderGreen300</code></span>
+        </section>
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">Equal square</span>
+          <span class="gray"><code class="mono">area{n}</code> &rarr; sets both width and height to <code class="mono">n</code>px at once</span>
+        </section>
+        <section class="flex row justifyStart gap12">
+          <span class="bgBlue white mono size12 padding4 paddingInline10 corner4 wpx130">Font weight</span>
+          <span class="gray"><code class="mono">str1</code>&ndash;<code class="mono">str9</code> or named: <code class="mono">bold</code>, <code class="mono">semiBold</code>, <code class="mono">extraLight</code>&hellip;</span>
+        </section>
+      </section>
+    </section>
+  </section>
+
+</section><!-- end content wrapper -->
+
+
+<section class="col padding0 bgWhite" id="button">
+    
+    <section class="gap10">
+      <a href="" class="tiny"><i class="fas fa-bell"></i> Tiny</a>
+      <a href="" class=""><i class="fas fa-bell"></i>Default</a>
+      <a href="" class="medium"><i class="fas fa-bell"></i> Medium</a>
+      <a href="" class="large"><i class="fas fa-bell"></i> Large</a>
+      <a href="" class="xlarge"><i class="fas fa-bell"></i> Xlarge</a>
+      <a href="" class="xxlarge"><i class="fas fa-bell"></i> 2xlarge</a>
+      <a href="" class="xxxlarge"><i class="fas fa-bell"></i> 3xlarge</a>
+    </section>
+    <section class="gap10">
+      <a href="" class="oval tiny"><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval "><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval medium"><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval large"><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval xlarge"><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval xxlarge"><i class="fas fa-bell"></i> oval tiny</a>
+      <a href="" class="oval xxxlarge"><i class="fas fa-bell"></i> oval tiny</a>
+    </section>
+    <section class="gap10">
+      <a href="" class="circle tiny"><i class="fas fa-bell"></i></a>
+      <a href="" class="circle "><i class="fas fa-bell"></i></a>
+      <a href="" class="circle medium"><i class="fas fa-bell"></i></a>
+      <a href="" class="circle large"><i class="fas fa-bell"></i></a>
+      <a href="" class="circle xlarge"><i class="fas fa-bell"></i></a>
+      <a href="" class="circle xxlarge"><i class="fas fa-bell"></i></a>
+      <a href="" class="circle xxxlarge"><i class="fas fa-bell"></i></a>
+    </section>
+    <section class="gap10">
+      <a href="" class="square tiny"><i class="fas fa-bell"></i></a>
+      <a href="" class="square "><i class="fas fa-bell"></i></a>
+      <a href="" class="square medium"><i class="fas fa-bell"></i></a>
+      <a href="" class="square large"><i class="fas fa-bell"></i></a>
+      <a href="" class="square xlarge"><i class="fas fa-bell"></i></a>
+      <a href="" class="square xxlarge"><i class="fas fa-bell"></i></a>
+      <a href="" class="square xxxlarge"><i class="fas fa-bell"></i></a>
+    </section>
+    <section class="gap10">
+      <p class="size12">Use class name "circle" or "square" the button shape above </p>
+    </section>
+
+    <section id="components">
+        <p class="size20 mono upperCase">Background Components</p>
+    </section>
+    
+    <section class="wrap gap10 corner15 bgSoft">
+      <div class="wpx300 hpx180 corner15 silver size40">silver</div>
+      <div class="wpx300 hpx180 corner15 aluminum size40">aluminum</div>
+      <div class="wpx300 hpx180 corner15 porcelain size40">porcelain</div>
+    </section>
+
+    <section class="wrap gap10">
+      <div class="wpx300 hpx180 corner15 abstract size40">abstract</div>
+      <div class="wpx300 hpx180 corner15 gradient size40">gradient</div>
+      <div class="wpx300 hpx180 corner15 sea size40">sea</div>
+      <div class="wpx300 hpx180 corner15 blind size40">blind</div>
+      <div class="wpx300 hpx180 corner15 geo size40">geo</div>
+      <div class="wpx300 hpx180 corner15 geoL size40">geoL</div>
+      <div class="wpx300 hpx180 corner15 blocks size40">blocks</div>
+      <div class="wpx300 hpx180 corner15 blocksL size40">blocksL</div>
+      <div class="wpx300 hpx180 corner15 cloth size40">cloth</div>
+      <div class="wpx300 hpx180 corner15 polaroid size40">polaroid</div>
+      <div class="wpx300 hpx180 corner15 animate size40">animate</div>
+      <div class="wpx300 hpx180 corner15 shards size40">shards</div>
+      <div class="wpx300 hpx180 corner15 galaxy size40">galaxy</div>
+    </section>
+    <section class="wrap gap10">
+      <div class="wpx300 hpx180 corner15 abstract-red size28">abstract red</div>
+      <div class="wpx300 hpx180 corner15 abstract-orange size28">abstract orange</div>
+      <div class="wpx300 hpx180 corner15 abstract-amber size28">abstract amber</div>
+      <div class="wpx300 hpx180 corner15 abstract-yellow size28">abstract yellow</div>
+      <div class="wpx300 hpx180 corner15 abstract-lime size28">abstract lime</div>
+      <div class="wpx300 hpx180 corner15 abstract-green size28">abstract green</div>
+      <div class="wpx300 hpx180 corner15 abstract-emerald size28">abstract emerald</div>
+      <div class="wpx300 hpx180 corner15 abstract-forest size28">abstract forest</div>
+      <div class="wpx300 hpx180 corner15 abstract-army size28">abstract army</div>
+      <div class="wpx300 hpx180 corner15 abstract-fatigue size28">abstract fatigue</div>
+      <div class="wpx300 hpx180 corner15 abstract-teal size28">abstract teal</div>
+      <div class="wpx300 hpx180 corner15 abstract-cyan size28">abstract cyan</div>
+      <div class="wpx300 hpx180 corner15 abstract-sky size28">abstract sky</div>
+      <div class="wpx300 hpx180 corner15 abstract-blue size28">abstract blue</div>
+      <div class="wpx300 hpx180 corner15 abstract-indigo size28">abstract indigo</div>
+      <div class="wpx300 hpx180 corner15 abstract-violet size28">abstract violet</div>
+      <div class="wpx300 hpx180 corner15 abstract-purple size28">abstract purple</div>
+      <div class="wpx300 hpx180 corner15 abstract-fuchsia size28">abstract fuchsia</div>
+      <div class="wpx300 hpx180 corner15 abstract-pink size28">abstract pink</div>
+      <div class="wpx300 hpx180 corner15 abstract-rose size28">abstract rose</div>
+      <div class="wpx300 hpx180 corner15 abstract-slate size28">abstract slate</div>
+      <div class="wpx300 hpx180 corner15 abstract-gray size28">abstract gray</div>
+      <div class="wpx300 hpx180 corner15 abstract-zinc size28">abstract zinc</div>
+      <div class="wpx300 hpx180 corner15 abstract-neutral size28">abstract neutral</div>
+      <div class="wpx300 hpx180 corner15 abstract-stone size28">abstract stone</div>
+    </section>
+
+    <section class="wrap abstract corner15">
+      <section class="wrap padding20 gap20">
+        <div class="wpx200 hpx70 corner15 clear size20">clear</div>
+        <div class="wpx200 hpx70 corner15 glass size20">glass</div>
+        <div class="wpx200 hpx70 corner15 crystal size20">crystal</div>
+        <div class="wpx200 hpx70 corner15 liquid size20">liquid</div>
+      </section>
+      <section class="wrap padding20 gap20">
+        <div class="wpx200 hpx70 corner15 glow1 bgWhite size20 textPrimary">glow1</div>
+        <div class="wpx200 hpx70 corner15 glow2 bgWhite size20 textPrimary">glow2</div>
+        <div class="wpx200 hpx70 corner15 glow3 bgWhite size20 textPrimary">glow3</div>
+      </section>
+    </section>
+    <br>
+    <section class="wrap padding0 gap20">
+      <section class="width60 hpx500 imgUrl imgNoRepeat imgCenter imgCover wrap padding20 gap10 corner20" style="--img: url('/images/annphoto2.jpg')">
+        <div class="wpx300 height50 corner15 glass size20">glass</div>
+        <div class="wpx300 height50 corner15 crystal size20">crystal</div>
+      </section>
+    </section>
+</section>
+<!-- FOOTER -->
+<section class="bgWhite textCenter padding24 size12 mono gray" style="border-top:1px solid #ddd">
+  style.css utility reference &mdash; built entirely with your own classes
+</section>
+
+</body>
+</html>

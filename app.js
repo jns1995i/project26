@@ -99,9 +99,11 @@ app.use(
         "https://res.cloudinary.com",
       ],
       connectSrc: [
-        "'self'",
+        "'self'",                        // ✅ already here, covers fetch('/style.css')
         "https://ka-f.fontawesome.com",
-        "https://cdn.jsdelivr.net"
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com",  // ← add this (font fetch)
+        "https://fonts.gstatic.com",     // ← add this (font fetch)
       ],
       objectSrc: ["'none'"],
       frameSrc: ["'self'"],
@@ -448,8 +450,12 @@ app.post('/vvp', async (req, res) => {
     }
 });
 
-app.get('/tm', async (req, res) => {
+app.get('/template', async (req, res) => {
   res.render('template');
+});
+
+app.get('/guide', async (req, res) => {
+  res.render('guide');
 });
 
 app.get('/in', async (req, res) => {
@@ -491,6 +497,9 @@ app.get('/js6', async (req, res) => {
 });
 app.get('/js0', async (req, res) => {
   res.render('js0');
+});
+app.get('/jj', async (req, res) => {
+  res.render('jj');
 });
 
 
